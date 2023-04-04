@@ -32,7 +32,7 @@ sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
     my @list = (4,2,3);
     # Hello World
-   $c->stash(template=>"index.tt",list=>@list);
+   $c->stash(template=>"home/index.tt");
 }
 
 sub default :Path {
