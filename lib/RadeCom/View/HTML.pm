@@ -5,7 +5,11 @@ use namespace::autoclean;
 extends 'Catalyst::View::TT';
 
 __PACKAGE__->config(
-    TEMPLATE_EXTENSION => '.tt',
+    TEMPLATE_EXTENSION => '.tt2',
+    INCLUDE_PATH => [
+            RadeCom->path_to( 'root', 'src' ),
+        ],
+    WRAPPER => 'wrapper.tt2',
     render_die => 1,
 );
 

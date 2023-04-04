@@ -2,6 +2,8 @@ package RadeCom::Controller::Root;
 use Moose;
 use namespace::autoclean;
 
+
+
 BEGIN { extends 'Catalyst::Controller' }
 
 #
@@ -30,10 +32,12 @@ The root page (/)
 
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
-    my @list = (4,2,3);
-    # Hello World
-   $c->stash(template=>"home/index.tt");
+    
+    $c->stash(users => [$c->model('User::user')->all]);
+
+    $c->stash(template=>"users.tt2");
 }
+
 
 sub default :Path {
     my ( $self, $c ) = @_;
