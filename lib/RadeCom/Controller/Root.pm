@@ -30,16 +30,10 @@ The root page (/)
 
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
-
+    my @list = (4,2,3);
     # Hello World
-    $c->response->body( $c->welcome_message );
+   $c->stash(template=>"index.tt",list=>@list);
 }
-
-=head2 default
-
-Standard 404 error page
-
-=cut
 
 sub default :Path {
     my ( $self, $c ) = @_;
